@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+
+  --bg: #07112a;
+  --surface: #0f1320;
+  --surface-hover: #161b2c;
+
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+
+  --border: #2b3145;
+
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+
+  --danger: #dc2626;
+  --danger-hover: #b91c1c;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background-color: var(--bg);
+  color: var(--text-primary);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: rgba(59, 130, 246, 0.35);
+  color: white;
+}
+
+::placeholder {
+  color: var(--text-secondary);
+}

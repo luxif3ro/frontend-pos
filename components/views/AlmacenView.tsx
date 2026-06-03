@@ -32,7 +32,7 @@ export function AlmacenView({ productos }: AlmacenViewProps) {
     precioUnitario: 0,
     precioPieza: 0,
     precioPaquete: 0,
-    activo: false,
+    activo: true,
     idProveedor: 0,
   });
 

@@ -4,11 +4,16 @@ import { Ventas, VentasPOST } from "@/types/Ventas";
 
 
 export async function fetchVentas(): Promise<Ventas[]> {
+  if (!process.env.API_URL) {
+    console.error("API_URL no está definida en las variables de entorno.");
+    return [];
+  }
+  
   try {
     const response = await fetch(
       `${process.env.API_URL}/api/ventas`,
       {
-        cache: "no-store",
+        next: { revalidate: 10 },
       }
     );
 

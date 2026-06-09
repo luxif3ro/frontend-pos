@@ -3,11 +3,17 @@
 import { Producto, ProductoPOST } from "@/types/Productos";
 
 export async function fetchProductos(): Promise<Producto[]> {
+
+  if (!process.env.API_URL) {
+    console.error("API_URL no está definida en las variables de entorno.");
+    return [];
+  }
+
   try {
     const response = await fetch(
       `${process.env.API_URL}/api/productos`,
       {
-        cache: "no-store",
+        next: { revalidate: 10 },
       }
     );
 
@@ -74,7 +80,7 @@ export async function deleteProducto(
 ): Promise<boolean> {
   try {
     const response = await fetch(
-      `${process.env.API_URL}/productos/${idProducto}`,
+      `${process.env.API_URL}/api/productos/${idProducto}`,
       {
         method: "DELETE",
       }

@@ -13,7 +13,7 @@ export async function fetchVentas(): Promise<Ventas[]> {
     const response = await fetch(
       `${process.env.API_URL}/api/ventas`,
       {
-        next: { revalidate: 10 },
+        cache: "no-store",
       }
     );
 
